@@ -6,13 +6,18 @@
 #    By: mromao-d <mromao-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 15:34:29 by mromao-d          #+#    #+#              #
-#    Updated: 2023/06/25 16:47:39 by mromao-d         ###   ########.fr        #
+#    Updated: 2023/09/26 19:16:17 by mromao-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 SRC = *.c
 LINE = get_next_line/*.c
+LIBFT = libft/*.c
+PRINTF = printf/*.c
+MLX_LIB_DIR = .minilibx-linux/
+MLX_INCLUDE = -I mlx_linux
+MLX_FLAGS = -L$(MLX_LIB_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 
 OBJS = $(SRC:.c=.o)
 
@@ -23,12 +28,18 @@ CC = cc
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) -fsanitize=address $(SRC) $(LINE) -o $(NAME)
+		$(MAKE) -C $(MLX_LIB_DIR)
+#		$(CC) $(CFLAGS) -fsanitize=address $(SRC) $(LINE) $(LIBFT) $(PRINTF) -o $(NAME)
+		$(CC) $(CFLAGS) $(SRC) $(LINE) $(LIBFT) $(PRINTF) -o $(NAME)
+#		$(CC) $(CFLAGS) $(SRC) $(LINE) -o $(NAME)
 #		$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 valgrind: $(OBJS)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-	valgrind --leak-check=full ./$(NAME) "0 1 2 3 4 5 6 7 8 10 9"
+	$(MAKE) -C $(MLX_LIB_DIR)
+#	$(CC) $(CFLAGS) -fsanitize=address $(SRC) $(LINE) $(LIBFT) $(PRINTF) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) $(LINE) $(LIBFT) $(PRINTF) -o $(NAME)
+#	./$(NAME) "pyra.fdf"
+#	 valgrind --leak-check=full ./$(NAME) "pyra.fdf"
 
 
 run: $(OBJS)

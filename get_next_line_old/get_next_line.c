@@ -6,7 +6,7 @@
 /*   By: mromao-d <mromao-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 11:59:50 by mromao-d          #+#    #+#             */
-/*   Updated: 2023/09/25 14:53:22 by mromao-d         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:12:58 by mromao-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ char	*ft_strdjoin(char *s1, char *s2)
 	int		i;
 	int		keep_size;
 
-	output = (char *)malloc(sizeof(char) * (ft_strlen_(s1) + ft_strlen_(s2) + 1));
+	output = (char *)malloc(sizeof(char) * (ft_strlen1(s1) + ft_strlen1(s2) + 1));
 	if (!output)
 		return (0);
-	keep_size = ft_strlen_(s2);
+	keep_size = ft_strlen1(s2);
 	i = 0;
 	while (s1 && s1[i])
 	{	
 		output[i] = s1[i];
 		i++;
 	}
-	while (s2 && *s2 && *s2 != '\n' && i < (keep_size + ft_strlen_(s1)))
+	while (s2 && *s2 && *s2 != '\n' && i < (keep_size + ft_strlen1(s1)))
 		output[i++] = *s2++;
 	if (*s2 == '\n')
 		output[i++] = '\n';
@@ -66,7 +66,7 @@ char	*get_next_line(int fd)
 
 	if (fd > FOPEN_MAX || fd < 0 || BUFFER_SIZE < 1)
 		return (0);
-	line = ft_strdup_(stack);
+	line = ft_strdup1(stack);
 	if (ft_lb_pos(stack))
 		return (line);
 	end = BUFFER_SIZE;
@@ -125,7 +125,7 @@ char	*get_next_line(int fd)
 {
 	char str[100] = "asdoishdoisa as\n asd asd";
 	ft_lb_pos(str);
-	printf("%s , %d", str, ft_strlen((char *)ft_strlen));
+	printf("%s , %d", str, ft_strlen1((char *)ft_strlen1));
 	return (0);
 } */
 

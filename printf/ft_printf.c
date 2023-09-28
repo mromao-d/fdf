@@ -6,11 +6,11 @@
 /*   By: mromao-d <mromao-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:38:59 by mromao-d          #+#    #+#             */
-/*   Updated: 2023/06/25 15:45:27 by mromao-d         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:11:31 by mromao-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../headers/ft_printf.h"
 
 static int	ft_putstr1(char *str)
 {

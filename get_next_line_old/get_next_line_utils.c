@@ -6,20 +6,20 @@
 /*   By: mromao-d <mromao-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 11:42:35 by mromao-d          #+#    #+#             */
-/*   Updated: 2023/09/25 14:50:49 by mromao-d         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:13:02 by mromao-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/get_next_line.h"
 
-char	*ft_strdup_(char	*str)
+char	*ft_strdup1(char	*str)
 {
 	char	*tmp;
 	int		i;
 
 	if (str && str == NULL)
 		return (0);
-	tmp = malloc(sizeof(char) * ft_strlen_(str) + 1);
+	tmp = malloc(sizeof(char) * ft_strlen1(str) + 1);
 	if (!tmp)
 		return (0);
 	i = 0;
@@ -34,7 +34,7 @@ char	*ft_strdup_(char	*str)
 	return (tmp);
 }
 
-int	ft_strlen_(char	*str)
+int	ft_strlen1(char	*str)
 {
 	int	i;
 
